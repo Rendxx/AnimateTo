@@ -21,7 +21,7 @@ Dependency:
     
 API-Base:
     $(ele).animateTo(opts)
-        - opts: {transfrom, duration, easing, onStep, onComplete }
+        - opts: {transform, duration, easing, onStep, onComplete }
             - transform: transformation accept 2 kinds of value: number or "+=" / "-=" number
             if a number is given, element will transform to it.
             if a string start with "+=" or "-=" is given, the element will increase/decrease its transform value, which means multiple transformation can be applied in same time.
@@ -37,11 +37,11 @@ API-Base:
             - onStep: callback function fired on every step
             - onComplete: callback function when animation complete
 
-    $(ele).animateTo(transfrom, duration)
+    $(ele).animateTo(transform, duration)
     
-    $(ele).animateTo(transfrom, duration, onComplete)
+    $(ele).animateTo(transform, duration, onComplete)
     
-    $(ele).animateTo(transfrom, duration, easing, onComplete)
+    $(ele).animateTo(transform, duration, easing, onComplete)
 
 ************************************************/
 
@@ -179,14 +179,14 @@ API-Base:
         var options = $.extend(true, {}, $.fn.animateTo.defaults);
         if (arguments.length == 1) {   // [opts]
             $.extend(true, options, arguments[0]);
-        } else if (arguments.length == 2) { // [transfrom, duration]
+        } else if (arguments.length == 2) { // [transform, duration]
             $.extend(true, options.transform, arguments[0]);
             if (arguments[1] != null) options.duration = arguments[1];
-        } else if (arguments.length == 3) { // [transfrom, duration, onComplete]
+        } else if (arguments.length == 3) { // [transform, duration, onComplete]
             $.extend(true, options.transform, arguments[0]);
             if (arguments[1] != null) options.duration = arguments[1];
             options.onComplete = arguments[2];
-        } else if (arguments.length == 4) { // [transfrom, duration, easing, onComplete]
+        } else if (arguments.length == 4) { // [transform, duration, easing, onComplete]
             $.extend(true, options.transform, arguments[0]);
             if (arguments[1] != null) options.duration = arguments[1];
             options.easing = arguments[2];

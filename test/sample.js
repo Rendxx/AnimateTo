@@ -39,19 +39,19 @@ $(function () {
     });
     $(".reset").click(function () {
         msg.text("reseting");
-        squ.animateTo({
-            transform: {
-                rotate: 0,
-                scaleX: 1,
-                scaleY: 1,
-                translateX: 0,
-                translateY: 0
-            },
-            duration: 700,
-            onComplete: function () {
-                msg.text("RESET!");
-            }
-        });
+squ.animateTo({
+    transform: {
+        rotate: 0,
+        scaleX: 1,
+        scaleY: 1,
+        translateX: 0,
+        translateY: 0
+    },
+    duration: 700,
+    onComplete: function () {
+        msg.text("RESET!");
+    }
+});
     });
     $(".stop").click(function () {
         msg.text("STOP!");
