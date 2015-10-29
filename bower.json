@@ -1,0 +1,33 @@
+{
+  "name": "animateTo",
+  "description": "Create animation for Css3 2D-transforms.",
+  "main": [
+    "js/AnimateTo.js"
+  ],
+  "dependencies": {
+    "jquery": "1.11.2",
+    "transform2D": "^0.4.1"
+  },
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "animate",
+    "animation",
+    "move",
+    "rotate",
+    "transform"
+  ],
+  "authors": [
+  ],
+  "license": "MIT",
+  "ignore": [
+    "*",
+    "!js/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "private": false
+}
