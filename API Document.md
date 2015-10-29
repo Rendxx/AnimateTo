@@ -1,7 +1,7 @@
 
 # API Document
 
-#### $(jQuery Element).animateTo(transform, duration[[, easing], onComplete]) 
+#### $(jQuery Element).animateTo(transform, duration[[, easing], onComplete])  ```object (jQuery element)```
 Create an animation of the jQuery element.
 - **transform** ```object```    
   + **rotate** ```number``` ```string```  
@@ -33,9 +33,10 @@ Create an animation of the jQuery element.
 
 - **onComplete** ```function```   
   Callback function. Be called when animation complete.  
+
 <h1></h1>
 
-#### $(jQuery Element).animateTo(opts)
+#### $(jQuery Element).animateTo(opts) ```object (jQuery element)```
 Transform the element by given options.
  
 - **opts** ```object```  
@@ -49,6 +50,12 @@ Transform the element by given options.
     *[See above]*
   + **onStep** ```function``  
     Callback function. Be called at every animation step.   
+
+<h1></h1>
+
+#### $(jQuery Element).animateStop() ```object (jQuery element)```
+Stop all animation applied to the jQuery element, the element will stop at its current status.  
+OnComplete callback will not be triggered if you stop the animation.
 
 <h1></h1>
 <div><br></div>

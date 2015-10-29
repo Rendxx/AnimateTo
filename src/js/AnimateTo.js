@@ -3,8 +3,8 @@ Animate To
 Copyright (c) 2014-2015 Dongxu Ren  http://www.rendxx.com/
 
 License: MIT (http://www.opensource.org/licenses/mit-license.php)
-Version: 0.2.2
-Update: 2015-09-21
+Version: 0.2.3
+Update: 2015-10-29
 
 Description:
     Create animation for Css3 2D-transforms.
@@ -57,21 +57,18 @@ API-Base:
         return _code;
     };
 
-    var nextStep = function (code, ele, transformQueue, step, onStep, onComplete) {
+    var nextStep = function (code, ele, transformQueue, step, onStep) {
         var codeList = ele.data(_keyName);
         if (codeList == null) return; // being stoped 
         if (!codeList.hasOwnProperty(code)) {
-            if (codeList.hasOwnProperty("end")) {
-                delete codeList["end"];
-                ele.data(_keyName, codeList);
-                if (onComplete != null) onComplete();
-            }
+            return;
         }
         if (step < transformQueue.length) {
             ele.transform2D(transformQueue[step]);
             if (onStep != null) onStep(transformQueue[step]);
-            setTimeout(function () { nextStep(code, ele, transformQueue, step + 1, onStep, onComplete); }, _intervalTime);
+            setTimeout(function () { nextStep(code, ele, transformQueue, step + 1, onStep); }, _intervalTime);
         } else {
+            var onComplete = codeList[code];
             delete codeList[code];
             ele.data(_keyName, codeList);
             if (onComplete != null) onComplete();
@@ -123,12 +120,9 @@ API-Base:
         return dataQueue;
     };
 
-    $.fn.animateStop = function (jumpToEnd) {
+    $.fn.animateStop = function () {
         this.each(function () {
-            if (jumpToEnd === true) $(this).data(_keyName, { end: true });
-            else {
-                $(this).removeData(_keyName);
-            }
+            $(this).removeData(_keyName);
         });
         return this;
     };
@@ -201,10 +195,11 @@ API-Base:
             var $this = $(this);
             var transformQueue = createAnimationQueue($this, transform, options.easing, stepNum);
 
+            // codelist is a map of callback pair: [code: onComplete]
             var codeList = $this.data(_keyName) || {};
-            codeList[code] = true;
+            codeList[code] = options.onComplete;
             $this.data(_keyName, codeList);
-            nextStep(code, $this, transformQueue, 0, options.onStep, options.onComplete);
+            nextStep(code, $this, transformQueue, 0, options.onStep);
         });
         return this;
     };
