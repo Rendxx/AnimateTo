@@ -6,7 +6,7 @@ Available transforms includes: rotate / translate / scale
 
 ![preview](https://raw.githubusercontent.com/Rendxx/AnimateTo/master/preview.png "Preview")
  
-*Download: [AnimateTo v0.2.2](https://github.com/Rendxx/AnimateTo/releases/tag/0.2.2 "Download")*
+*Download: [AnimateTo v0.2.3](https://github.com/Rendxx/AnimateTo/releases/tag/0.2.3 "Download")*
 
 ## Install
 Download the package from bower
