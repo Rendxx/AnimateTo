@@ -5,7 +5,8 @@ Available transforms includes: rotate / translate / scale
 >**Margin**  is used to handle offset in CSS2. BE CALEFUL to change them after applying transform in this case.
 
 ![preview](https://raw.githubusercontent.com/Rendxx/AnimateTo/master/preview.png "Preview")
- 
+
+*Sample: [http://www.rendxx.com/Lib/Sample/12](http://www.rendxx.com/Lib/Sample/12 "Sample")*  
 *Download: [AnimateTo v0.2.3](https://github.com/Rendxx/AnimateTo/releases/tag/0.2.3 "Download")*
 
 ## Install
